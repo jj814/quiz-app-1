@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <link rel="stylesheet" href="./login.css" />
+    <title>sign in </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+</head>
+<body class="body">
+    <div class="left">
+        <div class="formholder">
+            <h1 class="tittle">Get Started Now</h1>
+            <h3 class="tittle2">Enter Your credentails to access your account</h3>
+
+            <form id="loginform">
+            <div class="inputholder">
+                <h3 class="label">Email address</h3>
+                <input 
+                id="email"
+                class="Input"
+                type="email"
+                placeholder="Enter Your Email"
+                required
+                />
+            </div>
+            <div class="inputholder">
+                <h3 class="label">password</h3>
+                <input 
+                id="password"
+                class="Input"
+                type="password"
+                placeholder="password"
+                required
+                minlenght="6"
+                />
+            </div>
+            <button type="submit" class="button">Log in</button>
+            <div id="msg" class="msg"></div>
+        </form>
+        </div>
+
+    </div>
+
+    <div class="right">
+        <img src="./images/c230ffba520fab60716f712257d7f6a7fc48a42f.jpg" alt="plants" class="plants">
+    </div>
+    <script>
+        const DEFAULT_EMAIL = "jesuseunodewabi5@gmail.com";
+        const DEFAULT_PASSWORD = "pass1234";
+        const redirectTo = "../index.html";
+
+        const form = document.getElementById("loginform");
+        const emailEl = document.getElementById("email");
+        const passwordEl = document.getElementById("password");
+        const msgEl = document.getElementById("msg");
+
+        form.addEventListener("submit", (e)  => {
+            e.preventDefault();
+            const email = emailEl.value.trim().toLowerCase();
+            const password = passwordEl.value;
+
+            if (email === DEFAULT_EMAIL && password === DEFAULT_PASSWORD) {
+                msgEl.textContent = "login successful!";
+                msgEl.className = "msg ok";
+
+                sessionStorage.setItem("loggedIn", "true");
+                sessionStorage.setItem("email", email);
+
+                window.location.href = redirectTo; 
+            } else {
+                msgEl.textContent = "Invalid email or password";
+                msgEl.className = "msg err";
+            }
+            
+        });
+    </script>
+    
+</body>
+</html>

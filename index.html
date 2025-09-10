@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="body">
+    <div class="quiz-container">
+      <div class="header">
+        <div id="pagination" class="pagination" aria-live="polite">
+          Question 1/5
+        </div>
+        <h1 class="title">Quiz App</h1>
+      </div>
+
+      <div id="quiz" class="quiz" role="group" aria-labelledby="question">
+        <h2 id="question" class="question">Question text</h2>
+
+        <ul
+          id="options"
+          class="options"
+          role="listbox"
+          aria-label="Answer choices"></ul>
+
+        <div class="actions">
+          <button id="next-btn" class="btn" disabled>Next</button>
+        </div>
+      </div>
+
+      <div id="result" class="result hidden" aria-live="polite"></div>
+    </div>
+
+    <script src="./script.js" defer></script>
+  </body>
+</html>
